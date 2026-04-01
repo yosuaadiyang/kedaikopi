@@ -1,0 +1,56 @@
+# ═══════════════════════════════════════
+# KedaiKopi — Render Blueprint
+# Deploy: https://render.com/deploy
+# ═══════════════════════════════════════
+
+databases:
+  - name: kedaikopi-db
+    plan: free
+    databaseName: kedaikopi
+    user: kedaikopi
+
+services:
+  - type: web
+    name: kedaikopi-api
+    plan: free
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    envVars:
+      - key: APP_NAME
+        value: KedaiKopi
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: "false"
+      - key: APP_KEY
+        generateValue: true
+      - key: APP_URL
+        sync: false
+      - key: APP_TIMEZONE
+        value: Asia/Jakarta
+      - key: DB_CONNECTION
+        value: pgsql
+      - key: DATABASE_URL
+        fromDatabase:
+          name: kedaikopi-db
+          property: connectionString
+      - key: FRONTEND_URL
+        sync: false
+      - key: SANCTUM_STATEFUL_DOMAINS
+        sync: false
+      - key: CACHE_STORE
+        value: database
+      - key: QUEUE_CONNECTION
+        value: database
+      - key: SESSION_DRIVER
+        value: database
+      - key: LOG_CHANNEL
+        value: stderr
+      - key: LOG_LEVEL
+        value: warning
+      - key: MAIL_MAILER
+        value: log
+      - key: MAIL_FROM_ADDRESS
+        value: noreply@kedaikopi.id
+    healthCheckPath: /api/health

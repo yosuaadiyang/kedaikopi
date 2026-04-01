@@ -1,0 +1,29 @@
+{
+  "name": "KedaiKopi",
+  "short_name": "KedaiKopi",
+  "description": "Direktori Kedai Kopi #1 Indonesia",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a0e09",
+  "theme_color": "#1a0e09",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "lang": "id",
+  "categories": ["food", "lifestyle"]
+}

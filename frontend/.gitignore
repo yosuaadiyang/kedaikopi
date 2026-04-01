@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.env
+.env.local
+.env.*.local
+package-lock.json
+npm-debug.log*
+*.local
